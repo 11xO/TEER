@@ -1,0 +1,52 @@
+.header-actions { display:flex;align-items:center;gap:8px;flex-shrink:0; }
+.theme-toggle { width:44px;height:44px;background:var(--card);color:var(--primary); }
+.theme-toggle:hover { border-color:var(--primary);background:var(--bg-soft); }
+@media (max-width:480px) { #homeHeader .header-actions { flex-direction:column; } }
+
+html[data-theme='dark'] {
+  --bg-main:#0b1220;
+  --bg-soft:#172235;
+  --card:#111c2d;
+  --border:#2b3b52;
+  --border-active:rgba(167,139,250,.55);
+  --text:#f1f5f9;
+  --text-soft:#cbd5e1;
+  --text-muted:#94a3b8;
+  --text-dim:#8494ab;
+  --success:#34d399;
+  --warning:#fbbf24;
+  --danger:#f87171;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.2);
+  --shadow-md:0 4px 12px rgba(0,0,0,.25);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.35);
+}
+html[data-theme='dark'] .splash { background:linear-gradient(135deg,#0b1220,#1e1638); }
+html[data-theme='dark'] .bottom-nav { background:rgba(17,28,45,.95); }
+html[data-theme='dark'] .settings-icon,
+html[data-theme='dark'] .inp-wrap input:focus,
+html[data-theme='dark'] .field input:focus,
+html[data-theme='dark'] .field textarea:focus,
+html[data-theme='dark'] .field select:focus { background:var(--card); }
+html[data-theme='dark'] .profile-circle { border-color:var(--card); }
+html[data-theme='dark'] .active-order-body,
+html[data-theme='dark'] .order-details { background:var(--bg-soft); }
+html[data-theme='dark'] .reward-cost,
+html[data-theme='dark'] .waiting-status-badge,
+html[data-theme='dark'] .waiting-desc b,
+html[data-theme='dark'] .status-waiting,
+html[data-theme='dark'] .banner-discount { color:#fbbf24; }
+html[data-theme='dark'] .whatsapp-sent-title,
+html[data-theme='dark'] .reopen-whatsapp-btn,
+html[data-theme='dark'] .waiting-approved-title,
+html[data-theme='dark'] .status-done,
+html[data-theme='dark'] .dest-option .price,
+html[data-theme='dark'] .price-box-label i,
+html[data-theme='dark'] .banner-coupon { color:#6ee7b7; }
+html[data-theme='dark'] .waiting-note-new b,
+html[data-theme='dark'] .status-active { color:#c4b5fd; }
+html[data-theme='dark'] .waiting-cancel,
+html[data-theme='dark'] .btn-cancel-order,
+html[data-theme='dark'] .banner-cancel,
+html[data-theme='dark'] .status-pending { color:#fca5a5; }
+html[data-theme='dark'] .shop-card-arrow,
+html[data-theme='dark'] .invite-code-text { color:#67e8f9; }
