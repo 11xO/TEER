@@ -1,7 +1,7 @@
 const VERIFY_BASE_URL = 'https://verify.twilio.com/v2';
 export function createWhatsAppVerificationProvider({ accountSid, authToken, serviceSid, fetchImpl = globalThis.fetch, timeoutMs = 15000 }) {
   if (!accountSid || !authToken || !serviceSid) throw new Error('Twilio Verify credentials are required.');
-  const authorization = `Basic ${Buffer.from(`${accountSid}:${authToken}`).toString('base64')}`;
+  const authorization = `Basic ${btoa(`${accountSid}:${authToken}`)}`;
   async function post(resource, fields, signal) {
     const signals = [AbortSignal.timeout(timeoutMs)]; if (signal) signals.push(signal);
     let response, data;

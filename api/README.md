@@ -1,5 +1,7 @@
 # طبقة API والتحقق من واتساب
 
+نسخة الخادم المتوافقة مع Cloudflare Workers داخل [hosted](./hosted)، وتستخدم D1 للجلسات والتحديات. نسخة Node.js وSQLite ما زالت متاحة محليًا. لبناء نسخة Workers شغّل `npm run db:generate` عند تغيير مخطط البيانات، ثم `npm run build:hosted` و`npm run test:hosted`. يحتاج نشرها ربط D1 باسم `DB`، وتطبيق ترحيلات [drizzle](../drizzle)، وضبط `APP_ORIGIN` ومفاتيح Twilio كأسرار في الاستضافة. بناء المشروع وحده لا ينشر الخادم.
+
 الخادم داخل هذا المجلد، وعميل React داخل [src/api](../src/api). ملف إرسال وفحص الكود الحقيقي هو [whatsappVerification.js](./whatsappVerification.js)، وملف استدعائه من الواجهة هو [src/api/whatsappVerification.js](../src/api/whatsappVerification.js).
 
 ## تشغيل التحقق الحقيقي
