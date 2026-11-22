@@ -21,7 +21,7 @@ self.addEventListener('push', (event) => {
   if (typeof payload !== 'object' || payload === null) payload = { body: String(payload) };
   const notification = payload.notification || payload;
   const data = payload.data || {};
-  event.waitUntil(self.registration.showNotification(notification.title || data.title || 'مشوارك', {
+  event.waitUntil(self.registration.showNotification(notification.title || data.title || 'teer', {
     body: notification.body || data.body || 'لديك إشعار جديد', icon: new URL('icons/logo-192.png', appScope).href, badge: new URL('icons/logo-192.png', appScope).href,
     dir: 'rtl', lang: 'ar', data: { url: safeNotificationURL(notification.click_action || data.url || payload.url) },
   }));

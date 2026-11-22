@@ -21,7 +21,7 @@ export default function ProtectedUI({ children }) {
     try { setChallenge(await verification.sendMutation.mutateAsync({ phone })); }
     catch (error) { if (error.name !== 'AbortError') setError(error.message); }
   }
-  return <div className="login-screen"><div className="login-card"><div className="login-logo-wrap"><div className="login-logo-bg" /><img src="./logo.png" alt="مشوارك" className="login-logo" /></div><div className="login-title">تأكيد رقم واتساب</div>
+  return <div className="login-screen"><div className="login-card"><div className="login-logo-wrap"><div className="login-logo-bg" /><img src="./logo.png" alt="teer" className="login-logo" /></div><div className="login-title">تأكيد رقم واتساب</div>
     {challenge ? <VerificationCodeForm challenge={challenge} verification={verification} onVerified={() => verificationSession.refetch()} onResend={send} onBack={() => { verification.reset(); setChallenge(null); setError(null); }} error={error} /> : <><div className="login-sub">أكد رقمك عشان تقدر تستخدم حسابك<br /><b dir="ltr">{phone}</b></div><FieldError error={error} /><button className="btn-whatsapp" disabled={verification.sendMutation.isPending} onClick={send}><Icon name={verification.sendMutation.isPending ? 'fa-spinner fa-spin' : 'fa-whatsapp'} brand={!verification.sendMutation.isPending} /> إرسال كود التحقق</button></>}
   </div></div>;
 }

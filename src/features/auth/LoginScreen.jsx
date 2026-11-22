@@ -13,7 +13,7 @@ import { useVerification } from '../../api/useVerification.js';
 import VerificationCodeForm from './VerificationCodeForm.jsx';
 
 export function registrationMessage(data) {
-  return `🔔 *طلب تسجيل جديد في مشوارك*\n━━━━━━━━━━━━━━━━━━\n👤 *الاسم:* ${data.name}\n📱 *الرقم:* ${data.phone}\n📍 *المنطقة:* ${data.area}\n${data.inviteCode ? `🎁 *كود الدعوة:* ${data.inviteCode}\n` : ''}⏰ *الوقت:* ${new Date(data.requestedAt).toLocaleString('ar-EG')}\n━━━━━━━━━━━━━━━━━━\n✅ برجاء الموافقة على الطلب 🙏`;
+  return `🔔 *طلب تسجيل جديد في teer*\n━━━━━━━━━━━━━━━━━━\n👤 *الاسم:* ${data.name}\n📱 *الرقم:* ${data.phone}\n📍 *المنطقة:* ${data.area}\n${data.inviteCode ? `🎁 *كود الدعوة:* ${data.inviteCode}\n` : ''}⏰ *الوقت:* ${new Date(data.requestedAt).toLocaleString('ar-EG')}\n━━━━━━━━━━━━━━━━━━\n✅ برجاء الموافقة على الطلب 🙏`;
 }
 export default function LoginScreen() {
   const { register: registerAccount, registrationSubmitting, support, toast, online } = useApp();
@@ -55,7 +55,7 @@ export default function LoginScreen() {
   const errors = form.formState.errors;
   return <>
     <div className="login-screen" id="loginSection"><div className="login-bg-decor"><div className="login-bg-orb orb-1" /><div className="login-bg-orb orb-2" /></div><div className="login-card">
-      <div className="login-logo-wrap"><div className="login-logo-bg" /><img src="./logo.png" alt="مشوارك" className="login-logo" /></div><div className="login-title">{challenge ? 'تأكيد رقم واتساب' : 'أهلاً بيك 👋'}</div>
+      <div className="login-logo-wrap"><div className="login-logo-bg" /><img src="./logo.png" alt="teer" className="login-logo" /></div><div className="login-title">{challenge ? 'تأكيد رقم واتساب' : 'أهلاً بيك 👋'}</div>
       {challenge ? <VerificationCodeForm key={challenge.challengeId} challenge={challenge} verification={verification} onVerified={() => completeRegistration(profile)} onResend={resend} onBack={() => { verification.reset(); setChallenge(null); setProfile(null); setError(null); }} submitting={registrationSubmitting} error={error} /> : <ApiForm form={form} onSubmit={submit}>
         <div className="login-sub">سجل بياناتك وابدأ في 30 ثانية</div>{WHATSAPP_VERIFICATION_ENABLED && <div className="form-step-label">الخطوة 1 من 2 — بياناتك</div>}
         <div className="inp-wrap"><input {...form.register('name')} type="text" id="uNameInput" placeholder="اسمك الكامل" aria-label="اسمك الكامل" autoComplete="name" aria-invalid={Boolean(errors.name)} /><Icon name="fa-user" /></div><FieldError error={errors.name} />

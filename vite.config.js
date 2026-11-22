@@ -16,7 +16,7 @@ export default defineConfig({
     strategies: 'injectManifest', srcDir: 'src', filename: 'sw.js', registerType: 'autoUpdate', injectRegister: null,
     includeAssets: ['logo.png', 'tuktuk.png', 'icons/*.png'],
     manifest: {
-      id: './', name: 'مشوارك | خدمات ذكية', short_name: 'مشوارك', description: 'خدمات توصيل ذكية لباب بيتك',
+      id: './', name: 'teer | خدمات ذكية', short_name: 'teer', description: 'خدمات توصيل ذكية لباب بيتك',
       lang: 'ar', dir: 'rtl', start_url: './', scope: './', display: 'standalone', orientation: 'portrait', background_color: '#f8fafc', theme_color: '#8b5cf6', categories: ['shopping', 'food', 'utilities'],
       icons: [
         { src: './icons/logo-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },

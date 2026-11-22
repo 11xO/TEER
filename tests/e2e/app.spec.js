@@ -1,5 +1,19 @@
 import { test, expect } from '@playwright/test';
-import { setup, user, area, phone } from './fixture.js';
+import { setup, user, area, phone, fixtureData } from './fixture.js';
+
+test('rewards show previously used fakka cards in history', async ({ page }) => {
+  const data = fixtureData();
+  data.primary.rewards_history = { [phone]: {
+    card1: { type: 'fakka', typeName: 'كارت فكة فودافون', network: 'فودافون', cardCode: '12345678912345', cost: 150, usedAt: 1763774400000 },
+    discount1: { type: 'delivery', typeName: 'توصيل مجاني', cost: 100, usedAt: 1763774400000 },
+  } };
+  await setup(page, { data, url: '/#rewards' });
+  await page.getByRole('button', { name: 'سجل الكروت' }).click();
+  await expect(page.getByText('12345678912345')).toBeVisible();
+  await expect(page.getByText('كارت فكة فودافون', { exact: true })).toBeVisible();
+  await expect(page.getByText('150 نقطة')).toBeVisible();
+  await expect(page.getByText('توصيل مجاني')).toHaveCount(0);
+});
 
 test('mobile layout, full-discount trip, failed-write retry, and coupon consumption', async ({ page }, info) => {
   const errors = []; page.on('pageerror', (error) => errors.push(error.message));
